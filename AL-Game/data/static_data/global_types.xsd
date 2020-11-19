@@ -1091,6 +1091,24 @@
             <xs:enumeration value="LDF5B_GUARD_LI"/>
             <xs:enumeration value="UP3_URF_ENEMY"/>
             <xs:enumeration value="UP3_URF_OBJ"/>
+            <!-- New 7.5 -->
+            <xs:enumeration value="LDF8_LEGION_DIGGER_L"/>
+            <xs:enumeration value="LDF8_LEGION_DIGGER_D"/>
+            <xs:enumeration value="LDF8_LEGION_DIGGER_N"/>
+            <xs:enumeration value="LDF5_PANDAROONGS_POLYMORPH_L"/>
+            <xs:enumeration value="LDF5_PANDAROONGS_POLYMORPH_D"/>
+            <xs:enumeration value="LDF5_PANDAROONGS_ENTRANCE"/>
+            <xs:enumeration value="DRAMATASLIME"/>
+            <xs:enumeration value="IDF8_DRAGON_ALTAR_FOBJ"/>
+            <xs:enumeration value="IDF8_DRAGON_ALTAR_RAID"/>
+            <xs:enumeration value="IDF8_DRAGON_ALTAR_USEALL"/>
+            <xs:enumeration value="LDF8_LEGION_ALL_ATK"/>
+            <xs:enumeration value="EVENT_V75_HAPPYSHUGO"/>
+            <!-- New 7.7 -->
+            <xs:enumeration value="IDCATACOMBS_RUDRA_HINT_01"/>
+            <xs:enumeration value="IDCATACOMBS_RUDRA_HINT_02"/>
+            <xs:enumeration value="ATREIA_GARDEN_PLANTS"/>
+            <xs:enumeration value="ATREIA_GARDEN_BADLARVA"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- Base types -->
@@ -1185,6 +1203,7 @@
 			<xs:enumeration value="COLLECTION_02"/>
 			<xs:enumeration value="COLLECTION_03"/>
 			<xs:enumeration value="COLLECTION_04"/>
+			<xs:enumeration value="F6_RAID_BOSS"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="itemQuality">

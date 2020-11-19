@@ -25,6 +25,7 @@ import com.aionemu.gameserver.model.gameobjects.Item;
 import com.aionemu.gameserver.model.items.IdianStone;
 import com.aionemu.gameserver.model.items.ItemStone;
 import com.aionemu.gameserver.model.items.ManaStone;
+import com.aionemu.gameserver.model.items.RealRandomBonusStat;
 import com.aionemu.gameserver.network.aion.iteminfo.ItemInfoBlob.ItemBlobType;
 
 /**
@@ -90,8 +91,45 @@ public class ManaStoneInfoBlobEntry extends ItemBlobEntry {
 		writeSkillBoost(buf); // 8-bytes
 		writeD(buf, item.isLunaReskin() ? 1 : 0); // Luna Reskin
 		writeC(buf, item.getReductionLevel()); // Level Reduction
-		writeB(buf, new byte[40]); // TODO
+		writeRandomBonus(buf); // TODO
 		writeD(buf, item.getItemSkinTemplate().getTemplateId());
+		writeGrind(buf);
+	}
+
+    private void writeGrind(ByteBuffer buf) {
+        Item item = ownerItem;
+        writeC(buf, item.getGrindSocket());
+        writeC(buf, item.getGrindColor());
+		writeQ(buf, 0);
+        writeC(buf, item.isContaminated() ? 1 : 0);
+        writeC(buf, 0);
+        writeC(buf, 0);
+        writeD(buf, 0);
+    }
+	
+	/**
+	 * Writes random Bonus data
+	 * 
+	 * @param item
+	 */
+	private void writeRandomBonus(ByteBuffer buf) { // TODO
+		Item item = ownerItem;
+		if (item.getRealRndBonus() == null) {
+			writeB(buf, new byte[40]);
+		} else {
+			final int size = (20 - (item.getRealRndBonus().getStats().size() * 2));
+			for (RealRandomBonusStat bonus : item.getRealRndBonus().getStats()) {
+				writeH(buf, bonus.getStat().getItemStoneMask());
+				System.out.println("Bonus STAT-NAME: " + bonus.getStat().name() + " STAT-ID: " + bonus.getStat().getItemStoneMask());
+			}
+			writeB(buf, new byte[size]);
+			for (RealRandomBonusStat bonus : item.getRealRndBonus().getStats()) {
+				writeH(buf, bonus.getValue());
+				System.out.println("Bonus VAL: " + bonus.getValue());
+			}
+			writeB(buf, new byte[size]);
+			System.out.println("Size: " + size);
+		}
 	}
 
 	/**
@@ -227,6 +265,10 @@ public class ManaStoneInfoBlobEntry extends ItemBlobEntry {
 				 // writeD(buf, 0); // PvE Defend Ratio
 					break;
 				default:
+					writeD(buf, 0);
+				    writeD(buf, 0);
+				    writeD(buf, 0);
+				    writeD(buf, 0);
 					break;
 			}
 				// Some Padding for future.
@@ -274,6 +316,6 @@ public class ManaStoneInfoBlobEntry extends ItemBlobEntry {
 
 	@Override
 	public int getSize() {
-		return 231; // 6.5
+		return 248; // 7.5
 	}
 }

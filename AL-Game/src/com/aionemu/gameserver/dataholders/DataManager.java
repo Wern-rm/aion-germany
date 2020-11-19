@@ -52,6 +52,8 @@ public final class DataManager {
 	public static SummonStatsData SUMMON_STATS_DATA;
 	public static ItemData ITEM_DATA;
 	public static ItemRandomBonusData ITEM_RANDOM_BONUSES;
+	public static ItemRealRandomBonusData ITEM_REAL_RANDOM_BONUSES;
+	public static GrindCombineData GRIND_COMBINE_DATA;
 	public static TitleData TITLE_DATA;
 	public static PlayerInitialData PLAYER_INITIAL_DATA;
 	public static SkillData SKILL_DATA;
@@ -124,7 +126,6 @@ public final class DataManager {
 	public static RobotData ROBOT_DATA;
 	public static ArcadeUpgradeData ARCADE_UPGRADE_DATA;
 	public static HiddenStigmaTreeData HIDDEN_STIGMA_DATA;
-	public static WorldBuffData WORLD_BUFF_DATA;
 	public static PlayersAppearanceData PLAYER_APPEARANCE_DATA;
 	public static ServiceBuffData SERVICE_BUFF_DATA;
 	public static PlayersBonusData PLAYERS_BONUS_DATA;
@@ -148,6 +149,7 @@ public final class DataManager {
 	public static LugbugEventData LUGBUG_EVENT_DATA;
 	public static LugbugQuestData LUGBUG_QUEST_DATA;
 	public static LugbugSpecialQuestData LUGBUG_SPECIAL_QUEST_DATA;
+	public static AtreianPassportData ATREIAN_PASSPORT_DATA;
 	private XmlDataLoader loader;
 
 	/**
@@ -176,6 +178,8 @@ public final class DataManager {
 		ITEM_CLEAN_UP = data.itemCleanup;
 		ITEM_DATA = data.itemData;
 		ITEM_RANDOM_BONUSES = data.itemRandomBonuses;
+		ITEM_REAL_RANDOM_BONUSES = data.itemRealRandomBonuses;
+		GRIND_COMBINE_DATA = data.grindCombineData;
 		NPC_DATA = data.npcData;
 		NPC_SHOUT_DATA = data.npcShoutData;
 		GATHERABLE_DATA = data.gatherableData;
@@ -257,7 +261,6 @@ public final class DataManager {
 		ROBOT_DATA = data.robotData;
 		ARCADE_UPGRADE_DATA = data.arcadeUpgradeData;
 		HIDDEN_STIGMA_DATA = data.hiddenStigmas;
-		WORLD_BUFF_DATA = data.buffData;
 		PLAYER_APPEARANCE_DATA = data.playerAppearance;
 		SERVICE_BUFF_DATA = data.serviceBuffData;
 		PLAYERS_BONUS_DATA = data.playersBonusData;
@@ -281,6 +284,7 @@ public final class DataManager {
 		LUGBUG_EVENT_DATA = data.lugbugEventData;
 		LUGBUG_QUEST_DATA = data.lugbugQuestData;
 		LUGBUG_SPECIAL_QUEST_DATA = data.lugbugSpecialQuestData;
+		ATREIAN_PASSPORT_DATA = data.atreianPassportData;
 		ITEM_DATA.cleanup();
 
 		// some sexy time message

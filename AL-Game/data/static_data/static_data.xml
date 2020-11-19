@@ -77,8 +77,10 @@
     </item_templates>
     <import file="items/item_custom_sets.xml"/>
     <import file="items/item_random_bonuses.xml"/>
+    <import file="items/item_real_random_bonuses.xml"/>
     <import file="items/item_groups.xml"/>
     <import file="items/assembly_items.xml"/>
+    <import file="items/grind_combines.xml"/>
     <import file="npc_factions/npc_factions.xml"/>
     <import file="npc_skills/npc_skills.xml"/>
     <npc_templates>
@@ -181,7 +183,6 @@
     <import file="stats/absolute_stats.xml"/>
     <import file="arcadelist.xml"/>   
 	<import file="hidden_stigma_tree/hidden_stigma_tree.xml"/>
-	<import file="world_buff/world_buffs.xml"/>
     <import file="service_bonusattr/service_bonusattr.xml"/>
     <import file="service_bonusattr/players_bonus.xml"/>
     <import file="service_bonusattr/f2p_bonusattr.xml"/>
@@ -214,4 +215,5 @@
 	<import file="lugbug/lugbug_events.xml"/>
 	<import file="lugbug/lugbug_quests.xml"/>
 	<import file="lugbug/lugbug_special_quests.xml"/>
+	<import file="events_config/atreian_passports.xml"/>
 </ae_static_data>

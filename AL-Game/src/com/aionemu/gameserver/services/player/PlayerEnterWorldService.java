@@ -119,6 +119,7 @@ import com.aionemu.gameserver.network.aion.serverpackets.SM_YOUTUBE_VIDEO;
 import com.aionemu.gameserver.questEngine.model.QuestState;
 import com.aionemu.gameserver.questEngine.model.QuestStatus;
 import com.aionemu.gameserver.services.AccessLevelEnum;
+import com.aionemu.gameserver.services.AtreianPassportService;
 import com.aionemu.gameserver.services.AutoGroupService;
 import com.aionemu.gameserver.services.BrokerService;
 import com.aionemu.gameserver.services.ClassChangeService;
@@ -140,6 +141,7 @@ import com.aionemu.gameserver.services.TownService;
 import com.aionemu.gameserver.services.TransformationService;
 import com.aionemu.gameserver.services.VortexService;
 import com.aionemu.gameserver.services.WarehouseService;
+import com.aionemu.gameserver.services.WorldPlayTimeService;
 import com.aionemu.gameserver.services.abyss.AbyssSkillService;
 import com.aionemu.gameserver.services.conquerer_protector.ConquerorsService;
 import com.aionemu.gameserver.services.craft.RelinquishCraftStatus;
@@ -483,7 +485,7 @@ public final class PlayerEnterWorldService {
 			client.sendPacket(new SM_AFTER_TIME_CHECK()); // offi 4.9.1
 
 			// SM_FD_UNK 01 00 00
-			client.sendPacket(new SM_UNK_FD());// TODO
+			client.sendPacket(new SM_UNK_FD(2));// TODO
 
 			// SM_PACKAGE_INFO_NOTIFY
 			client.sendPacket(new SM_PACKAGE_INFO_NOTIFY(0));
@@ -668,6 +670,9 @@ public final class PlayerEnterWorldService {
 
 			// SM_UNK_106
 			client.sendPacket(new SM_UNK_106());
+
+			// SM_ATREIAN_PASSPORT
+			AtreianPassportService.getInstance().onLogin(player);
 
 			// SM_HOUSE_OWNER_INFO
 			HousingService.getInstance().onPlayerLogin(player);
@@ -951,6 +956,8 @@ public final class PlayerEnterWorldService {
 			if (CraftConfig.DELETE_EXCESS_CRAFT_ENABLE)
 				RelinquishCraftStatus.removeExcessCraftStatus(player, false);
 
+			WorldPlayTimeService.getInstance().onEnterWorld(player);
+			PlayerFameService.getInstance().onPlayerLogin(player);
 			PlayerTransferService.getInstance().onEnterWorld(player);
 			player.setPartnerId(DAOManager.getDAO(WeddingDAO.class).loadPartnerId(player));
 

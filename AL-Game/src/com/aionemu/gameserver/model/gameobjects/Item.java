@@ -26,8 +26,10 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.aionemu.commons.database.dao.DAOManager;
 import com.aionemu.gameserver.configs.main.EnchantsConfig;
 import com.aionemu.gameserver.configs.main.MembershipConfig;
+import com.aionemu.gameserver.dao.RealItemRndBonusDAO;
 import com.aionemu.gameserver.dataholders.DataManager;
 import com.aionemu.gameserver.model.DescriptionId;
 import com.aionemu.gameserver.model.IExpirable;
@@ -37,8 +39,11 @@ import com.aionemu.gameserver.model.items.GodStone;
 import com.aionemu.gameserver.model.items.IdianStone;
 import com.aionemu.gameserver.model.items.ItemMask;
 import com.aionemu.gameserver.model.items.ManaStone;
+import com.aionemu.gameserver.model.items.OdianStone;
 import com.aionemu.gameserver.model.items.RandomBonusResult;
 import com.aionemu.gameserver.model.items.RandomStats;
+import com.aionemu.gameserver.model.items.RealRandomBonus;
+import com.aionemu.gameserver.model.items.RuneStone;
 import com.aionemu.gameserver.model.items.storage.IStorage;
 import com.aionemu.gameserver.model.items.storage.ItemStorage;
 import com.aionemu.gameserver.model.items.storage.StorageType;
@@ -90,6 +95,7 @@ public class Item extends AionObject implements IExpirable, StatOwner {
 	private int bonusNumber = 0;
 	private List<StatFunction> currentModifiers;
 	private RandomStats randomStats;
+	private RealRandomBonus realRndBonus;
 	private int rndCount;
 	public static int MAX_BASIC_STONES = 6;
 	private int packCount;
@@ -103,6 +109,15 @@ public class Item extends AionObject implements IExpirable, StatOwner {
     private int enhanceSkillId;
     private int enhanceEnchantLevel;
 	private int unSeal = 0;
+	private int SkinSkill = 0;
+    private OdianStone odianStone;
+    private RuneStone runeStone;
+    private int grindSocket;
+    private int grindColor;
+    private long grindStone;
+    private int grindSlot;
+    private Item grind;
+    private boolean contaminated = false;
 
 	/**
 	 * Create simple item with minimum information
@@ -117,7 +132,13 @@ public class Item extends AionObject implements IExpirable, StatOwner {
 		int optionSlotBonus = itemTemplate.getOptionSlotBonus();
 		if (optionSlotBonus != 0) {
 			optionalSocket = -1;
+		} 
+		if (this.itemTemplate.getSkinSkill() != 0) {
+			SkinSkill = itemTemplate.getSkinSkill();
 		}
+		this.optionalSocket = 0;
+        this.grindSocket = 0;
+        this.grindColor = 0;
 
         //add custom item set
         ItemCustomSetTemplate itemCustomSetTemplate = DataManager.ITEM_CUSTOM_SET_DATA.getItemCustomSetTemplate(itemTemplate.getTemplateId());
@@ -147,7 +168,7 @@ public class Item extends AionObject implements IExpirable, StatOwner {
 	/**
 	 * This constructor should be called only from DAO while loading from DB
 	 */
-	public Item(int objId, int itemId, long itemCount, int itemColor, int colorExpires, String itemCreator, int expireTime, int activationCount, boolean isEquipped, boolean isSoulBound, long equipmentSlot, int itemLocation, int enchant, int itemSkin, int fusionedItem, int optionalSocket, int optionalFusionSocket, int charge, int randomBonus, int rndCount, int packCount, int authorize, boolean isPacked, boolean isAmplified, int amplificationSkill, int reductionLevel, boolean lunaReskin, boolean isEnhance, int enhanceSkillId, int enhanceEnchantLevel, int unSeal) {
+	public Item(int objId, int itemId, long itemCount, int itemColor, int colorExpires, String itemCreator, int expireTime, int activationCount, boolean isEquipped, boolean isSoulBound, long equipmentSlot, int itemLocation, int enchant, int itemSkin, int fusionedItem, int optionalSocket, int optionalFusionSocket, int charge, int randomBonus, int rndCount, int packCount, int authorize, boolean isPacked, boolean isAmplified, int amplificationSkill, int reductionLevel, boolean lunaReskin, boolean isEnhance, int enhanceSkillId, int enhanceEnchantLevel, int unSeal, int SkinSkill, int grindSocket, int grindColor, long grindStone, int grindSlot, boolean contaminated) {
 		super(objId);
 
 		this.itemTemplate = DataManager.ITEM_DATA.getItemTemplate(itemId);
@@ -187,6 +208,13 @@ public class Item extends AionObject implements IExpirable, StatOwner {
         this.canEnhance = isEnhance;
         this.enhanceSkillId = enhanceSkillId;
         this.enhanceEnchantLevel = enhanceEnchantLevel;
+        this.SkinSkill = SkinSkill;
+        this.grindSocket = grindSocket;
+        this.grindColor = grindColor;
+        this.grindStone = grindStone;
+        this.grindSlot = grindSlot;
+        this.contaminated = contaminated;
+		DAOManager.getDAO(RealItemRndBonusDAO.class).loadRandomBonuses(this);
 		updateChargeInfo(charge);
 	}
 
@@ -1069,4 +1097,108 @@ public class Item extends AionObject implements IExpirable, StatOwner {
 		this.unSeal = unSeal;
 		setPersistentState(PersistentState.UPDATE_REQUIRED);
 	}
+
+	public void setItemSkinSkill(int skill) {
+		this.SkinSkill = skill;
+	}
+
+	public int getItemSkinSkill() {
+		return SkinSkill;
+	}
+
+    public RealRandomBonus getRealRndBonus() {
+        return realRndBonus;
+    }
+
+    public void setRealRndBonus(RealRandomBonus realRndBonus) {
+        this.realRndBonus = realRndBonus;
+    }
+
+    public int getGrindSocket() {
+        return grindSocket;
+    }
+
+    public void setGrindSocket(int grindSocket) {
+        this.grindSocket = grindSocket;
+    }
+
+    public OdianStone getOdianStone() {
+        return odianStone;
+    }
+
+    public OdianStone addOdianStone(int itemId) {
+        PersistentState state = odianStone != null ? PersistentState.UPDATE_REQUIRED : PersistentState.NEW;
+        odianStone = new OdianStone(getObjectId(), itemId, state);
+        return odianStone;
+    }
+
+    public void setOdianStone(OdianStone odianStone) {
+        this.odianStone = odianStone;
+    }
+
+    public boolean hasOdianStone() {
+        return odianStone != null;
+    }
+
+    public RuneStone getRuneStone() {
+        return runeStone;
+    }
+
+    public RuneStone addRuneStone(int itemId) {
+        PersistentState state = runeStone != null ? PersistentState.UPDATE_REQUIRED : PersistentState.NEW;
+        runeStone = new RuneStone(getObjectId(), itemId, state);
+        return runeStone;
+    }
+
+    public void setRuneStone(RuneStone runeStone) {
+        this.runeStone = runeStone;
+    }
+
+    public boolean hasRuneStone() {
+        return runeStone != null;
+    }
+
+    public int getGrindColor() {
+        return grindColor;
+    }
+
+    public void setGrindColor(int grindColor) {
+        this.grindColor = grindColor;
+    }
+
+    public Item getGrind() {
+        return grind;
+    }
+
+    public void setGrind(Item grind) {
+        this.grind = grind;
+    }
+
+    public boolean hasGring() {
+        return grind != null;
+    }
+
+    public boolean isContaminated() {
+        return contaminated;
+    }
+
+    public void setContaminated(boolean contaminated) {
+        this.contaminated = contaminated;
+    }
+
+    public long getGrindStone() {
+        return grindStone;
+    }
+
+    public void setGrindStone(long grindStone) {
+        this.grindStone = grindStone;
+    }
+
+    public int getGrindSlot() {
+        return grindSlot;
+    }
+
+    public void setGrindSlot(int grindSlot) {
+        this.grindSlot = grindSlot;
+    }
 }

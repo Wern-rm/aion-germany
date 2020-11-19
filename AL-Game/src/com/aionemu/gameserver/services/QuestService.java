@@ -87,6 +87,7 @@ import com.aionemu.gameserver.services.abyss.AbyssPointsService;
 import com.aionemu.gameserver.services.drop.DropRegistrationService;
 import com.aionemu.gameserver.services.item.ItemPacketService.ItemUpdateType;
 import com.aionemu.gameserver.services.item.ItemService;
+import com.aionemu.gameserver.services.player.PlayerFameService;
 import com.aionemu.gameserver.services.reward.BonusService;
 import com.aionemu.gameserver.spawnengine.SpawnEngine;
 import com.aionemu.gameserver.utils.MathUtil;
@@ -123,7 +124,7 @@ public final class QuestService {
 			return false;
 		}
 		
-		if (template.getCategory() == QuestCategory.MISSION && qs.getCompleteCount() != 0) {
+		if (template.getCategory() == QuestCategory.EPISODE && template.getCategory() == QuestCategory.GUIDE && template.getCategory() == QuestCategory.MISSION && qs.getCompleteCount() != 0) {
 			return false; // prevent repeatable reward because of wrong quest handling
 		}
 		List<QuestItems> questItems = new ArrayList<QuestItems>();
@@ -215,7 +216,7 @@ public final class QuestService {
 			if (isLastRepeat && template.isUseSingleClassReward() || template.isUseRepeatedClassReward()) {
 				QuestItems classRewardItem = null;
 				PlayerClass playerClass = player.getCommonData().getPlayerClass();
-				int selRewIndex = dialogId != DialogAction.INSTANT_REWARD.id() ? dialogId - 8 : 0; // For now InstantReward = only 1 selectable reward TODO more ?
+				int selRewIndex = dialogId != DialogAction.QUEST_AUTO_REWARD.id() ? dialogId - 8 : 0; // For now InstantReward = only 1 selectable reward TODO more ?
 				switch (playerClass) {
 					case ASSASSIN: {
 						classRewardItem = getQuestItemsbyClass(id, template.getAssassinSelectableReward(), selRewIndex);
@@ -408,6 +409,9 @@ public final class QuestService {
 		}
 		// TODO - Creativity Points 5.x
 		if (rewards.getRewardCP() != null) {}
+        if (rewards.getFameExp() != null) {
+            PlayerFameService.getInstance().addFameExp(player, rewards.getFameExp().intValue());
+        }
 		if (rewards.getExtendInventory() != null) {
 			if (rewards.getExtendInventory() == 1) {
 				CubeExpandService.expand(player, false);

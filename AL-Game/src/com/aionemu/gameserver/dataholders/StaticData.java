@@ -63,6 +63,10 @@ public class StaticData {
 	public ItemCustomSetData itemCustomSetData;
 	@XmlElement(name = "random_bonuses")
 	public ItemRandomBonusData itemRandomBonuses;
+	@XmlElement(name = "real_random_bonuses")
+	public ItemRealRandomBonusData itemRealRandomBonuses;
+    @XmlElement(name = "grind_combines")
+    public GrindCombineData grindCombineData;
 	@XmlElement(name = "npc_templates")
 	public NpcData npcData;
 	@XmlElement(name = "npc_shouts")
@@ -215,8 +219,6 @@ public class StaticData {
 	public ArcadeUpgradeData arcadeUpgradeData;
 	@XmlElement(name = "hidden_stigma_tree")
 	public HiddenStigmaTreeData hiddenStigmas;
-	@XmlElement(name = "world_buffs")
-	public WorldBuffData buffData;
 	@XmlElement(name = "players")
 	public PlayersAppearanceData playerAppearance;
 	@XmlElement(name = "service_bonusattrs")
@@ -261,6 +263,8 @@ public class StaticData {
 	public LugbugQuestData lugbugQuestData;
 	@XmlElement(name = "lugbug_special_quests")
 	public LugbugSpecialQuestData lugbugSpecialQuestData;
+	@XmlElement(name = "atreian_passports")
+	public AtreianPassportData atreianPassportData;
 
 	// JAXB callback
 	@SuppressWarnings("unused")
@@ -274,8 +278,10 @@ public class StaticData {
 		DataManager.log.info("[DataManager] Loaded " + itemCleanup.size() + " item cleanup entries");
 		DataManager.log.info("[DataManager] Loaded " + itemData.size() + " item templates");
 		DataManager.log.info("[DataManager] Loaded " + itemRandomBonuses.size() + " item bonus templates");
+		DataManager.log.info("[DataManager] Loaded " + itemRealRandomBonuses.size() + " item real bonus templates");
 		DataManager.log.info("[DataManager] Loaded " + itemGroupsData.bonusSize() + " bonus item group templates");
 		DataManager.log.info("[DataManager] Loaded " + itemGroupsData.petFoodSize() + " pet food items");
+		DataManager.log.info("[DataManager] Loaded " + grindCombineData.size() + " grind combine items");
 		DataManager.log.info("[DataManager] Loaded " + npcData.size() + " npc templates");
 		DataManager.log.info("[DataManager] Loaded " + systemMailTemplates.size() + " system mail templates");
 		DataManager.log.info("[DataManager] Loaded " + npcShoutData.size() + " npc shout templates");
@@ -356,7 +362,6 @@ public class StaticData {
 		DataManager.log.info("[DataManager] Loaded " + robotData.size() + " robot armor entries");
 		DataManager.log.info("[DataManager] Loaded " + xmlNpcDropData.size() + " custom npc drop data");
 		DataManager.log.info("[DataManager] Loaded " + hiddenStigmas.size() + " hidden stigmas entries");
-		DataManager.log.info("[DataManager] Loaded " + buffData.size() + " world buff map entries");
 		// DataManager.log.info("[DataManager] Loaded " + playerAppearance.size() + " Player Appearances");
 		DataManager.log.info("[DataManager] Loaded " + serviceBuffData.size() + " service bonus entries");
 		DataManager.log.info("[DataManager] Loaded " + playersBonusData.size() + " player bonus entries");
@@ -380,5 +385,6 @@ public class StaticData {
 		DataManager.log.info("[DataManager] Loaded " + lugbugEventData.size() + " Lugbug Event entrys");
 		DataManager.log.info("[DataManager] Loaded " + lugbugQuestData.size() + " Lugbug Quest entrys");
 		DataManager.log.info("[DataManager] Loaded " + lugbugSpecialQuestData.size() + " Lugbug Special Quest entrys");
+		DataManager.log.info("[DataManager] Loaded " + atreianPassportData.size() + " Atreian Passport entrys");
 	}
 }

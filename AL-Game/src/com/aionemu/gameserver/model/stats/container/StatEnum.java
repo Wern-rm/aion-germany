@@ -238,7 +238,13 @@ public enum StatEnum {
 
 	HIDDEN_PVE_ATTACK_RATIO,
 	HIDDEN_PVE_DEFEND_RATIO, 
-	BOOST_BOOK_XP_RATE;
+	BOOST_BOOK_XP_RATE,
+
+	// new 7.x
+	PVP_ATTACK,
+	PVP_DEFENSE,
+	PVE_ATTACK,
+	PVE_DEFENSE;
 
 	// If STAT id = 135 - Shrewd Cloth Set oOo
 	// Checked up to 160 in 3.5
@@ -293,6 +299,15 @@ public enum StatEnum {
 		}
 		throw new IllegalArgumentException("Cannot find StatEnum for stone mask: " + mask);
 	}
+
+    public static StatEnum findByStringName(String name) {
+        for (StatEnum sEnum : values()) {
+            if (sEnum.name().equalsIgnoreCase(name)) {
+                return sEnum;
+            }
+        }
+        throw new IllegalArgumentException("Cannot find StatEnum by name: " + name);
+    }
 
 	public StatEnum getHandStat(long itemSlot) {
 		switch (this) {

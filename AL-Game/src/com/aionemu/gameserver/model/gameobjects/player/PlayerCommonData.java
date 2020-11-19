@@ -18,6 +18,8 @@ package com.aionemu.gameserver.model.gameobjects.player;
 
 import java.sql.Timestamp;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +35,7 @@ import com.aionemu.gameserver.model.Race;
 import com.aionemu.gameserver.model.team.legion.LegionJoinRequestState;
 import com.aionemu.gameserver.model.templates.BoundRadius;
 import com.aionemu.gameserver.model.templates.VisibleObjectTemplate;
+import com.aionemu.gameserver.model.templates.atreianpassport.AtreianPassportTemplate;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_DP_INFO;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_SILVER_STAR;
 import com.aionemu.gameserver.network.aion.serverpackets.SM_STATUPDATE_DP;
@@ -117,10 +120,17 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 	private int minionSkillPoints;
 	private Timestamp minionFunctionTime;
 	private boolean minionAutoCharge;
+    private int worldPlayTime;
 
 	//Shugo Sweep 5.1
 	private int goldenDice;
 	private int resetBoard;
+
+	//Atreian Passport
+	private int stamps = 0;
+	private int passportReward = 0;
+	public Map<Integer, AtreianPassport> atreianPassports = new HashMap<Integer, AtreianPassport>(1);
+	private AtreianPassport completedPassports;
 
 	// TODO: Move all function to playerService or Player class.
 	public PlayerCommonData(int objId) {
@@ -735,14 +745,6 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 		lastOnline = timestamp;
 	}
 
-	public Timestamp getLastStamp() {
-		return lastStamp;
-	}
-
-	public void setLastStamp(Timestamp timestamp) {
-		this.lastStamp = timestamp;
-	}
-
 	public int getLevel() {
 		return level;
 	}
@@ -1131,4 +1133,55 @@ public class PlayerCommonData extends VisibleObjectTemplate {
 	public void setMinionAutoCharge(boolean auto) {
 		this.minionAutoCharge = auto;
 	}
+
+	/**
+	 * @Atreian Passport
+	 */
+	public Timestamp getLastStamp() {
+		return lastStamp;
+	}
+
+	public void setLastStamp(Timestamp timestamp) {
+		lastStamp = timestamp;
+	}
+
+	public int getPassportStamps() {
+		return stamps;
+	}
+
+	public void setPassportStamps(int stamps) {
+		this.stamps = stamps;
+	}
+
+	public Map<Integer, AtreianPassport> getPlayerPassports() {
+		return atreianPassports;
+	}
+
+	public AtreianPassport getCompletedPassports() {
+		return completedPassports;
+	}
+
+	public void addToCompletedPassports(AtreianPassportTemplate atreianPassportTemplate) {
+		completedPassports.addPassport(atreianPassportTemplate.getId(), atreianPassportTemplate);
+	}
+
+	public void setCompletedPassports(AtreianPassport atreianPassport) {
+		completedPassports = atreianPassport;
+	}
+
+	public int getPassportReward() {
+		return passportReward;
+	}
+
+	public void setPassportReward(int passportReward) {
+		this.passportReward = passportReward;
+	}
+
+    public void setWorldPlayTime(int playTime) {
+        this.worldPlayTime = playTime;
+    }
+
+    public int getWorldPlayTime() {
+        return worldPlayTime;
+    }
 }

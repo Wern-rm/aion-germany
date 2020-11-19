@@ -8709,7 +8709,7 @@
   <string>
     <id>911629</id>
     <name>STR_QUEST_DIALOG__NO_MISSION</name>
-    <body>There are no missions in progress.</body>
+    <body>No activities right now.</body>
   </string>
   <string>
     <id>911630</id>
@@ -10332,12 +10332,12 @@
   <string>
     <id>911975</id>
     <name>STR_NEW_MAP_SHOW_MISSION_WORKING</name>
-    <body>[%gchar:mission_working] active campaigns</body>
+    <body>[%gchar:mission_working] active campaigns and episodes</body>
   </string>
   <string>
     <id>911976</id>
     <name>STR_NEW_MAP_SHOW_MISSION_FINISHED</name>
-    <body>[%gchar:mission_finished] completed campaigns</body>
+    <body>[%gchar:mission_finished] completed campaigns and episodes</body>
   </string>
   <string>
     <id>911977</id>
@@ -18570,8 +18570,8 @@ You can sell or remove the item by double-clicking (or right-clicking), even if 
   <string>
     <id>913602</id>
     <name>STR_FAMILIAR_COMPOSE_TAB_BUTOONTIP</name>
-    <body>&lt;html&gt;&lt;font font_xml = "tooltip_guide_title"&gt;Minion Fusion&lt;/font&gt;&lt;br&gt;&lt;br&gt;
-&lt;font font_xml = "tooltip_guide_body"&gt;1. If you &lt;font color="ff0000"&gt;successfully&lt;/font&gt; combine two or more minions with evolution level 4 &lt;font color="ffff00"&gt;(Class A, B, C, D)&lt;/font&gt;, you receive one random minion of a higher class. &lt;font color="ff0000"&gt;If the fusion fails&lt;/font&gt;, you receive a random minion with evolution level 4.&lt;br&gt;2. If you fuse two or more &lt;font color="ffff00"&gt;(Class S)&lt;/font&gt; minions regardless of their evolution level, you will receive a random (Class S) minion.&lt;br&gt;3. The more minions you fuse, the higher the chances of success. There's a certain probability that you will receive a minion with evolution level 2 to 4. (A &lt;font color="ffff00"&gt;Class S&lt;/font&gt; minion only increases the probability of receiving a minion with evolution level 2 to 4.)&lt;/font&gt;&lt;/html&gt;</body>
+    <body>&lt;html&gt;&lt;font font_xml = "tooltip_guide_title"&gt;Minion Combination&lt;/font&gt;&lt;br&gt;&lt;br&gt;
+&lt;font font_xml = "tooltip_guide_body"&gt;1. If you &lt;font color="ff0000"&gt;successfully&lt;/font&gt; combine two or more minions at evolution level 4 &lt;font color="ffff00"&gt;(Class A, B, C)&lt;/font&gt;, you will receive one random minion of a higher class. &lt;font color="ff0000"&gt;If the fusion fails&lt;/font&gt;, you receive a random minion at evolution level 4.&lt;br&gt;2. If you fuse two or more &lt;font color="ffff00"&gt;(Class S)&lt;/font&gt; minions regardless of their evolution level, you will receive a random (Class S) minion.&lt;br&gt;3. The more minions you fuse, the higher the chances of success. There's a certain probability that you will receive a minion at evolution level 2 to 4. (A &lt;font color="ffff00"&gt;Class S&lt;/font&gt; minion only increases the probability of receiving a minion at evolution level 2 to 4.)&lt;/font&gt;&lt;/html&gt;</body>
   </string>
   <string>
     <id>913603</id>
@@ -19485,7 +19485,7 @@ You can find further information on the &lt;font color=#FFBB00&gt;official websi
   <string>
     <id>913789</id>
     <name>STR_INGAME_MARKET_DIALOG__TAP_CUSTOM_DRESS</name>
-    <body>High</body>
+    <body>Jacket</body>
   </string>
   <string>
     <id>913790</id>
@@ -19641,7 +19641,7 @@ You can find further information on the &lt;font color=#FFBB00&gt;official websi
   <string>
     <id>913821</id>
     <name>STR_TRANSFORMATION_TAB_COLLECTION_TOTAL</name>
-    <body>All collections</body>
+    <body>Total collection</body>
   </string>
   <string>
     <id>913822</id>
@@ -19746,7 +19746,7 @@ You can find further information on the &lt;font color=#FFBB00&gt;official websi
   <string>
     <id>913841</id>
     <name>STR_TRANSFORMATION_COLLECTION_PROFILE</name>
-    <body>Collections</body>
+    <body>Collection effect</body>
   </string>
   <string>
     <id>913842</id>
@@ -20190,7 +20190,67 @@ But the reward will be suitably large!</body>
   <string>
     <id>913934</id>
     <name>STR_FAMILIAR_EVOLVE_UI_FAIL_ADD_PROB_ZERO</name>
-    <body>&lt;p align="CENTER"&gt;&lt;font color="808080"&gt;&lt;del&gt;Additional chance of success on a failed evolution:&lt;/del&gt;&lt;/font&gt; (&lt;font color="ff0000"&gt;x&lt;/font&gt;)&lt;/p&gt;</body>
+    <body>&lt;p align="CENTER"&gt;No additional chance of success on a failed evolution.&lt;/p&gt;</body>
+  </string>
+  <string>
+    <id>913935</id>
+    <name>STR_DISASSEMBLY_ITEM_LIST_BUTTON</name>
+    <body>Details</body>
+  </string>
+  <string>
+    <id>913936</id>
+    <name>STR_DISASSEMBLY_ITEM_LIST_DIALOG</name>
+    <body>Confirm Result</body>
+  </string>
+  <string>
+    <id>913937</id>
+    <name>STR_DISASSEMBLY_ITEM_LIST_DIALOG__DESC</name>
+    <body>You could receive one of the items listed below depending on the probability:</body>
+  </string>
+  <string>
+    <id>913938</id>
+    <name>STR_DISASSEMBLY_ITEM_LIST_DIALOG__CLOSE</name>
+    <body>Close</body>
+  </string>
+  <string>
+    <id>913939</id>
+    <name>STR_NEW_MAP_DIALOG__QUEST_EPISODE_LIST</name>
+    <body>Active Episode</body>
+  </string>
+  <string>
+    <id>913940</id>
+    <name>STR_QUEST_DIALOG__QUEST_TABFRAME_QUEST_TAB_EPISODE</name>
+    <body>Episode</body>
+  </string>
+  <string>
+    <id>913941</id>
+    <name>STR_VENDOR_DIALOG__VENDOR_TAB_FRAME_ACCOUNT_LIST_BTN</name>
+    <body>Bill details</body>
+  </string>
+  <string>
+    <id>913942</id>
+    <name>STR_VENDOR_DIALOG__TOTAL_SELL</name>
+    <body>Sold: %num0 piece(s)</body>
+  </string>
+  <string>
+    <id>913943</id>
+    <name>STR_VENDOR_DIALOG__TOTAL_NO_ITEM</name>
+    <body>No bill found.</body>
+  </string>
+  <string>
+    <id>913944</id>
+    <name>STR_VENDOR_DIALOG__TOTAL_ITEM_AMOUNT</name>
+    <body>The items sold in the last 30 days will be displayed.</body>
+  </string>
+  <string>
+    <id>913945</id>
+    <name>STR_QUEST_DIALOG__WORKING_EPISODE_TEXT1</name>
+    <body>Active Episode</body>
+  </string>
+  <string>
+    <id>913946</id>
+    <name>STR_QUEST_DIALOG__FINISHED_EPISODE_TEXT1</name>
+    <body>Completed Episode</body>
   </string>
   <string>
     <id>913947</id>
@@ -20216,5 +20276,490 @@ But the reward will be suitably large!</body>
     <id>913951</id>
     <name>STR_INDUN_TIMER__TOOLTIP_PARTY_DMG</name>
     <body>Total damage</body>
+  </string>
+  <string>
+    <id>913952</id>
+    <name>STR_ENCHANT_PURIFICATION_OBJECT</name>
+    <body>Cleaning Target</body>
+  </string>
+  <string>
+    <id>913953</id>
+    <name>STR_ENCHANT_PURIFICATION_CLEANSER</name>
+    <body>Purifier</body>
+  </string>
+  <string>
+    <id>913954</id>
+    <name>STR_ENCHANT_ALL_DIALOG__OK_ENCHANT_GRIND</name>
+    <body>Polisher</body>
+  </string>
+  <string>
+    <id>913955</id>
+    <name>STR_ENCHANT_ALL_DIALOG__TARGET_ENCHANT_GRIND</name>
+    <body>Polish Target</body>
+  </string>
+  <string>
+    <id>913956</id>
+    <name>STR_ENCHANT_ALL_DIALOG__TOOL_TITLE_ENCHANT_GRIND</name>
+    <body>Polish Material</body>
+  </string>
+  <string>
+    <id>913957</id>
+    <name>STR_AUTO_ENCHANT_GRIND_WISH</name>
+    <body>Target polish level</body>
+  </string>
+  <string>
+    <id>913958</id>
+    <name>STR_AUTO_ENCHANT_GRIND_COUNT</name>
+    <body>Polishing Attempts</body>
+  </string>
+  <string>
+    <id>913959</id>
+    <name>STR_ENCHANT_ALL_DIALOG__ENCHANT_GRIND_MY_COST</name>
+    <body>Polishing Cost</body>
+  </string>
+  <string>
+    <id>913961</id>
+    <name>STR_ENCHANT_ALL_DIALOG__PREDICT_COMPOUND_GRIND</name>
+    <body>Expected Result</body>
+  </string>
+  <string>
+    <id>913962</id>
+    <name>STR_ENCHANT_ALL_DIALOG__RESULT_COMPOUND_GRIND</name>
+    <body>Fusion Result</body>
+  </string>
+  <string>
+    <id>913963</id>
+    <name>STR_ENCHANT_ALL_DIALOG_ENCHANT_OFF_ASSETS</name>
+    <body>Kinah</body>
+  </string>
+  <string>
+    <id>913964</id>
+    <name>STR_ENCHANT_ALL_DIALOG_ENCHANT_OFF_COST</name>
+    <body>Removal Cost</body>
+  </string>
+  <string>
+    <id>913965</id>
+    <name>STR_FAME_DIALOG__TITEL</name>
+    <body>Field Glory</body>
+  </string>
+  <string>
+    <id>913966</id>
+    <name>STR_FAME_DIALOG__LEVEL</name>
+    <body>Field Glory Level</body>
+  </string>
+  <string>
+    <id>913967</id>
+    <name>STR_FAME_DIALOG__DESC</name>
+    <body>Glory Details</body>
+  </string>
+  <string>
+    <id>913968</id>
+    <name>STR_GRIND_INFO_DIALOG_RUNE_TITLE_EQUIPMENT</name>
+    <body>Equipped Rune</body>
+  </string>
+  <string>
+    <id>913969</id>
+    <name>STR_GRIND_INFO_DIALOG_RUNE_TITLE_TREINFORCE_NAME</name>
+    <body>Transformation Enchantment</body>
+  </string>
+  <string>
+    <id>913970</id>
+    <name>STR_PLAYER_INFO_DIALOG__TOOLTIP_BADGE</name>
+    <body>Seal</body>
+  </string>
+  <string>
+    <id>913971</id>
+    <name>STR_CHAT_OPTION_DIALOG__COMBAT_MY_FEXP_GAIN</name>
+    <body>Get Glory Points</body>
+  </string>
+  <string>
+    <id>913972</id>
+    <name>STR_QUEST_DIALOG_FAMEREWARD_LIST_TITLE</name>
+    <body>Details of additional rewards</body>
+  </string>
+  <string>
+    <id>913973</id>
+    <name>STR_QUEST_DIALOG_FAMEREWARD_LIST_TITLE_DESC</name>
+    <body>You receive a reward item when you complete the task satisfactorily. (No reward for repeating lower levels.)</body>
+  </string>
+  <string>
+    <id>913974</id>
+    <name>STR_LOBBY_LOGIN__CREDIT_SHOW_VER_7_5</name>
+    <body>Land of Storms, Balaurea</body>
+  </string>
+  <string>
+    <id>913975</id>
+    <name>STR_AUTOHUNT_DIALOG_TITLE</name>
+    <body>Settings</body>
+  </string>
+  <string>
+    <id>913976</id>
+    <name>STR_ENCHANT_ALL_DIALOG__TARGET_ENCHANT_BADGE</name>
+    <body>Enchantment Target</body>
+  </string>
+  <string>
+    <id>913977</id>
+    <name>STR_ENCHANT_ALL_DIALOG__TOOL_TITLE_ENCHANT_BADGE</name>
+    <body>Enchantment Material</body>
+  </string>
+  <string>
+    <id>913978</id>
+    <name>STR_AUTOHUNT_RESULT_DIALOG_TITLE</name>
+    <body>Statistics</body>
+  </string>
+  <string>
+    <id>913979</id>
+    <name>STR_GLOBAL_OPTION_DIALOG__AUTOHUNT_AOD_CHECK</name>
+    <body>Display Combat Support UI</body>
+  </string>
+  <string>
+    <id>913980</id>
+    <name>STR_AUTOHUNT_DIALOG_SKILLSETTING</name>
+    <body>Skill settings</body>
+  </string>
+  <string>
+    <id>913981</id>
+    <name>STR_AUTOHUNT_DIALOG_POTIONSETTING</name>
+    <body>Regeneration</body>
+  </string>
+  <string>
+    <id>913982</id>
+    <name>STR_AUTOHUNT_DIALOG_POTIONSETTING_HP</name>
+    <body>HP</body>
+  </string>
+  <string>
+    <id>913983</id>
+    <name>STR_AUTOHUNT_DIALOG_POTIONSETTING_MP</name>
+    <body>MP</body>
+  </string>
+  <string>
+    <id>913984</id>
+    <name>STR_AUTOHUNT_DIALOG_ETCSETTING</name>
+    <body>Miscellaneous</body>
+  </string>
+  <string>
+    <id>913985</id>
+    <name>STR_AUTOHUNT_DIALOG_ETCSETTING_QUESTFIRST</name>
+    <body>Prioritise quest monsters</body>
+  </string>
+  <string>
+    <id>913986</id>
+    <name>STR_AUTOHUNT_DIALOG_ETCSETTING_JUNKSELL</name>
+    <body>Auto sale</body>
+  </string>
+  <string>
+    <id>913987</id>
+    <name>STR_AUTOHUNT_DIALOG_ETCSETTING_USEEXPEXTRACTION</name>
+    <body>Use auto XP extractor</body>
+  </string>
+  <string>
+    <id>913988</id>
+    <name>STR_AUTOHUNT_DIALOG_MINION</name>
+    <body>Minion settings</body>
+  </string>
+  <string>
+    <id>913989</id>
+    <name>STR_AUTOHUNT_DIALOG_START</name>
+    <body>Start Combat Support</body>
+  </string>
+  <string>
+    <id>913990</id>
+    <name>STR_AUTOHUNT_DIALOG_END</name>
+    <body>End Combat Support</body>
+  </string>
+  <string>
+    <id>913991</id>
+    <name>STR_AUTOHUNT_DIALOG_RESULT_PLAY_TIME</name>
+    <body>Duration</body>
+  </string>
+  <string>
+    <id>913992</id>
+    <name>STR_AUTOHUNT_DIALOG_RESULT_GET_XP</name>
+    <body>XP</body>
+  </string>
+  <string>
+    <id>913993</id>
+    <name>STR_AUTOHUNT_DIALOG_RESULT_GET_QINA</name>
+    <body>Kinah</body>
+  </string>
+  <string>
+    <id>913994</id>
+    <name>STR_AUTOHUNT_DIALOG_RESULT_KILL_MONSTER</name>
+    <body>Monsters defeated</body>
+  </string>
+  <string>
+    <id>913995</id>
+    <name>STR_AUTOHUNT_DIALOG_RESULT_CLEAR_QUEST</name>
+    <body>Quest Completion</body>
+  </string>
+  <string>
+    <id>913996</id>
+    <name>STR_AUTOHUNT_DIALOG_RESULT_GET_ITEM</name>
+    <body>Received Items</body>
+  </string>
+  <string>
+    <id>913997</id>
+    <name>STR_AUTOHUNT_DIALOG_RESULT_GET_AP</name>
+    <body>Abyss Points</body>
+  </string>
+  <string>
+    <id>913998</id>
+    <name>STR_AUTOHUNT_DIALOG_RESULT_GET_GP</name>
+    <body>Honour Points</body>
+  </string>
+  <string>
+    <id>913999</id>
+    <name>STR_AUTOHUNT_DIALOG_BUTTON_ACTION_TOOLTIP</name>
+    <body>Start/end Combat Support</body>
+  </string>
+  <string>
+    <id>914000</id>
+    <name>STR_AUTOHUNT_DIALOG_BUTTON_SETTING_TOOLTIP</name>
+    <body>Settings</body>
+  </string>
+  <string>
+    <id>914001</id>
+    <name>STR_AUTOHUNT_DIALOG_BUTTON_RESULT_TOOLTIP</name>
+    <body>Statistics</body>
+  </string>
+  <string>
+    <id>914002</id>
+    <name>STR_AUTOHUNT_DIALOG_SKILLSETTING_TOOLTIP</name>
+    <body>Register skill in the Skill window.</body>
+  </string>
+  <string>
+    <id>914003</id>
+    <name>STR_AUTOHUNT_DIALOG_POTIONSETTING_TOOLTIP</name>
+    <body>Register the item you want to use.</body>
+  </string>
+  <string>
+    <id>914004</id>
+    <name>STR_AUTOHUNT_DIALOG_ETCSETTING_QUESTFIRST_TOOLTIP</name>
+    <body>Quest monsters are prioritised when you set a target.</body>
+  </string>
+  <string>
+    <id>914005</id>
+    <name>STR_AUTOHUNT_DIALOG_ETCSETTING_JUNKSELL_TOOLTIP</name>
+    <body>Use the automatic sale function in the Inventory shop if your inventory is full.</body>
+  </string>
+  <string>
+    <id>914006</id>
+    <name>STR_AUTOHUNT_DIALOG_ETCSETTING_USEEXPEXTRACTION_TOOLTIP</name>
+    <body>If your XP is above 90%, the Combat Experience Extractor in your inventory is used automatically.</body>
+  </string>
+  <string>
+    <id>914007</id>
+    <name>STR_REINVENT_DIALOG_INDEX</name>
+    <body>Lumiel’s Transmorph</body>
+  </string>
+  <string>
+    <id>914008</id>
+    <name>STR_REINVENT_DIALOG_TAB_INDEX_1</name>
+    <body>Tab 1</body>
+  </string>
+  <string>
+    <id>914009</id>
+    <name>STR_REINVENT_DIALOG_TAB_INDEX_2</name>
+    <body>Tab 2</body>
+  </string>
+  <string>
+    <id>914010</id>
+    <name>STR_REINVENT_DIALOG_TAB_INDEX_3</name>
+    <body>Tab 3</body>
+  </string>
+  <string>
+    <id>914011</id>
+    <name>STR_REINVENT_DIALOG_TAB_INDEX_4</name>
+    <body>Tab 4</body>
+  </string>
+  <string>
+    <id>914012</id>
+    <name>STR_REINVENT_DIALOG_TAB_INDEX_DEACTIVATE</name>
+    <body>-</body>
+  </string>
+  <string>
+    <id>914013</id>
+    <name>STR_REINVENT_DIALOG_INFO_TOOLTIP</name>
+    <body>1. Register an item from your inventory by right-clicking or dragging it to the Materials window.
+2. Press the button ‘Melt down material’ to use up the items in the Materials window and receive morph points.
+3. If you have enough morph points, you can perform the morph.
+4. 5 items will be displayed as a preview of the Morph result.</body>
+  </string>
+  <string>
+    <id>914014</id>
+    <name>STR_REINVENT_DIALOG_BTN_DETAIL</name>
+    <body>Morph information</body>
+  </string>
+  <string>
+    <id>914015</id>
+    <name>STR_REINVENT_DIALOG_MAT_IN_INFO</name>
+    <body>Melt down materials.</body>
+  </string>
+  <string>
+    <id>914016</id>
+    <name>STR_REINVENT_DIALOG_BTN_MAT_IN</name>
+    <body>Melt down material</body>
+  </string>
+  <string>
+    <id>914017</id>
+    <name>STR_REINVENT_DIALOG_BTN_DO</name>
+    <body>Perform Morph</body>
+  </string>
+  <string>
+    <id>914018</id>
+    <name>STR_REINVENT_DIALOG_BTN_RENEWAL</name>
+    <body>New Morph targets</body>
+  </string>
+  <string>
+    <id>914019</id>
+    <name>STR_REINVENT_DIALOG_BTN_RESULT</name>
+    <body>Select Morph target</body>
+  </string>
+  <string>
+    <id>914020</id>
+    <name>STR_REINVENT_DETAIL_DIALOG_INDEX</name>
+    <body>Morph information</body>
+  </string>
+  <string>
+    <id>914021</id>
+    <name>STR_REINVENT_DETAIL_DIALOG_MAT_LIST_INDEX</name>
+    <body>Details</body>
+  </string>
+  <string>
+    <id>914022</id>
+    <name>STR_REINVENT_DETAIL_DIALOG_MAT_LIST_DESC</name>
+    <body>Materials, Odian and Polishing Stone</body>
+  </string>
+  <string>
+    <id>914023</id>
+    <name>STR_REINVENT_DETAIL_DIALOG_MAT_LIST_TAB_1_DESC</name>
+    <body>Materials list - Tab 1</body>
+  </string>
+  <string>
+    <id>914024</id>
+    <name>STR_REINVENT_DETAIL_DIALOG_MAT_LIST_TAB_2_DESC</name>
+    <body>Materials list - Tab 2</body>
+  </string>
+  <string>
+    <id>914025</id>
+    <name>STR_REINVENT_DETAIL_DIALOG_MAT_LIST_TAB_3_DESC</name>
+    <body>Materials list - Tab 3</body>
+  </string>
+  <string>
+    <id>914026</id>
+    <name>STR_REINVENT_DETAIL_DIALOG_MAT_LIST_TAB_4_DESC</name>
+    <body>Materials list - Tab 4</body>
+  </string>
+  <string>
+    <id>914027</id>
+    <name>STR_REINVENT_DETAIL_DIALOG_REWARD_INDEX</name>
+    <body>Detailed Results</body>
+  </string>
+  <string>
+    <id>914028</id>
+    <name>STR_REINVENT_DETAIL_DIALOG_REWARD_TAB_1</name>
+    <body>Rank 1</body>
+  </string>
+  <string>
+    <id>914029</id>
+    <name>STR_REINVENT_DETAIL_DIALOG_REWARD_TAB_2</name>
+    <body>Rank 2</body>
+  </string>
+  <string>
+    <id>914030</id>
+    <name>STR_REINVENT_DETAIL_DIALOG_REWARD_TAB_3</name>
+    <body>Rank 3</body>
+  </string>
+  <string>
+    <id>914031</id>
+    <name>STR_REINVENT_DETAIL_DIALOG_REWARD_TAB_4</name>
+    <body>Rank 4</body>
+  </string>
+  <string>
+    <id>914032</id>
+    <name>STR_REINVENT_DETAIL_DIALOG_REWARD_TAB_5</name>
+    <body>Rank 5</body>
+  </string>
+  <string>
+    <id>914033</id>
+    <name>STR_REINVENT_DIALOG_MENU_TITLE</name>
+    <body>Lumiel’s Transmorph</body>
+  </string>
+  <string>
+    <id>914034</id>
+    <name>STR_ITEMCOLLECTION_DIALOG_MAIN_TITLE</name>
+    <body>Item collection</body>
+  </string>
+  <string>
+    <id>914035</id>
+    <name>STR_ITEMCOLLECTION_DIALOG_BUFF_TITLE</name>
+    <body>Restrict search for attributes</body>
+  </string>
+  <string>
+    <id>914036</id>
+    <name>STR_ITEMCOLLECTION_DIALOG_LEVEL_TITLE</name>
+    <body>Level Reward</body>
+  </string>
+  <string>
+    <id>914037</id>
+    <name>STR_ITEMCOLLECTION_DIALOG_MAIN_BUFF</name>
+    <body>Collection effect</body>
+  </string>
+  <string>
+    <id>914038</id>
+    <name>STR_ITEMCOLLECTION_DIALOG_MAIN_ITEMINFO</name>
+    <body>Item information</body>
+  </string>
+  <string>
+    <id>914039</id>
+    <name>STR_ITEMCOLLECTION_DIALOG_MAIN_SPAREITEM</name>
+    <body>Registrable item</body>
+  </string>
+  <string>
+    <id>914040</id>
+    <name>STR_REINVENT_RENEWAL_DIALOG_INDEX</name>
+    <body>New Morph targets</body>
+  </string>
+  <string>
+    <id>914041</id>
+    <name>STR_REINVENT_RENEWAL_DIALOG_DESC</name>
+    <body>&lt;p&gt;5 items will be displayed when creating new Morph targets.&lt;/p&gt;
+&lt;p&gt;The costs are displayed as follows.&lt;/p&gt;
+&lt;p&gt;Do you want to continue?&lt;/p&gt;</body>
+  </string>
+  <string>
+    <id>914042</id>
+    <name>STR_REINVENT_RENEWAL_DIALOG_MYMONEY</name>
+    <body>Kinah</body>
+  </string>
+  <string>
+    <id>914043</id>
+    <name>STR_REINVENT_RENEWAL_DIALOG_FEE</name>
+    <body>Cost of new Morph targets</body>
+  </string>
+  <string>
+    <id>914044</id>
+    <name>STR_REINVENT_DIALOG_POINT_INDEX</name>
+    <body>Morph Points</body>
+  </string>
+  <string>
+    <id>914045</id>
+    <name>STR_ITEMCOLLECTION_DIALOG_TITLE_LEVEL</name>
+    <body>Collection level</body>
+  </string>
+  <string>
+    <id>914046</id>
+    <name>STR_ITEMCOLLECTION_DIALOG_NOTICE_DELETE</name>
+    <body>The item used to register will be deleted.</body>
+  </string>
+  <string>
+    <id>914047</id>
+    <name>STR_REINVENT_RENEWAL_ITEM_DIALOG_INDEX</name>
+    <body>New Morph targets</body>
+  </string>
+  <string>
+    <id>914048</id>
+    <name>STR_QUNAMARKET_DIALOG__WEEKLYRECOMMEND_TITLE</name>
+    <body>Weekly Recommendation</body>
   </string>
 </strings>

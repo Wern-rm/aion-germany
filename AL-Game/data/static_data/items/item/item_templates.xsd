@@ -116,6 +116,8 @@
 		<xs:attribute name="attack_gap" type="xs:float" use="optional"/>
 		<xs:attribute name="slot" type="xs:int" use="optional"/>
 		<xs:attribute name="m_slots" type="xs:int"/>
+		<xs:attribute name="option_slot_max" type="xs:int" use="optional"/>
+		<xs:attribute name="option_slot_add_count" type="xs:int" use="optional"/>
 		<xs:attribute name="max_enchant" type="xs:int"/>
 		<xs:attribute name="max_enchant_bonus" type="xs:int"/>
 		<xs:attribute name="exceed_enchant" type="xs:boolean" default="false"/>
@@ -129,6 +131,7 @@
 		<xs:attribute name="restrict_max" type="xs:string"/>
 		<xs:attribute name="restrict" type="xs:string"/>
 		<xs:attribute name="rnd_bonus" type="xs:int"/>
+		<xs:attribute name="rnd_real_bonus" type="xs:int"/>
 		<xs:attribute name="rnd_count" type="xs:int"/>
 		<xs:attribute name="bonus_apply" type="xs:string"/>
 		<xs:attribute name="race" type="itemRace"/>
@@ -156,7 +159,25 @@
 		<xs:attribute name="is_cash_contract" type="xs:boolean" use="optional"/>
 		<xs:attribute name="skill_enchant" type="xs:int" use="optional"/>
 		<xs:attribute name="enchant_type" type="enchantType"/>
+		<xs:attribute name="skin_skill" type="xs:int" use="optional"/>
+		<!-- NEW -->
+		<xs:attribute name="grind_color" type="xs:int"/>
+		<xs:attribute name="grind_tier" type="xs:int"/>
+		<xs:attribute name="grind_quality" type="xs:int"/>
+		<xs:attribute name="grind_slot" type="GrindSlot"/>
+		<xs:attribute name="grind_slot_opening_cost" type="xs:int" use="optional"/>
+		<xs:attribute name="odian_skill_id" type="xs:int"/>
+		<xs:attribute name="odian_skill_level" type="xs:int"/>
+		<xs:attribute name="rune_transform_table_id" type="xs:int"/>
 	</xs:complexType>
+	<!-- NEW -->
+	<xs:simpleType name="GrindSlot">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ODIAN"/>
+			<xs:enumeration value="RUNE"/>
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:simpleType name="itemSlot">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="MAIN_HAND"/>
@@ -183,6 +204,7 @@
 			<xs:enumeration value="TORSO_GLOVE_FOOT_SHOULDER_LEG"/>
 			<xs:enumeration value="PLUME"/>
 			<xs:enumeration value="BRACELET"/>
+			<xs:enumeration value="GLYPH"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="AbstractItemAction" abstract="true"/>
@@ -232,6 +254,10 @@
 			<xs:element name="adoptminion" type="AdoptMinionAction" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="adopttransformation" type="AdoptTransformationAction" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="unseal" type="UnsealAction" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="manastone_slot_expansion" type="ManastoneSlotExpansionAction" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="fame_exp" type="FameAddExpAction" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="grind_slot_expansion" type="GrindSlotExpansionAction" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="enchant_grind" type="EnchantGrindingAction" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ShugoSweepAction">
@@ -317,6 +343,13 @@
 				<xs:attribute name="max_level" type="xs:int" default="0"/>
 				<xs:attribute name="chance" type="xs:float" default="0"/>
 				<xs:attribute name="manastone_only" type="xs:boolean" default="false"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="EnchantGrindingAction">
+		<xs:complexContent>
+			<xs:extension base="AbstractItemAction">
+				<xs:attribute name="count" type="xs:int" default="0"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -500,6 +533,13 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:complexType name="FameAddExpAction">
+		<xs:complexContent>
+			<xs:extension base="AbstractItemAction">
+				<xs:attribute name="value" type="xs:int"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:complexType name="PolishAction">
 		<xs:complexContent>
 			<xs:extension base="AbstractItemAction">
@@ -559,6 +599,16 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:complexType name="ManastoneSlotExpansionAction">
+		<xs:complexContent>
+			<xs:extension base="AbstractItemAction"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GrindSlotExpansionAction">
+		<xs:complexContent>
+			<xs:extension base="AbstractItemAction"/>
+		</xs:complexContent>
+	</xs:complexType>
 	<xs:simpleType name="equipType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="ARMOR"/>
@@ -608,6 +658,7 @@
 			<xs:enumeration value="WING"/>
 			<xs:enumeration value="PLUME"/>
 	    	<xs:enumeration value="ACCESSORY"/>
+	    	<xs:enumeration value="GLYPH"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="WeaponList">
@@ -642,6 +693,7 @@
 			<xs:enumeration value="ANCIENT_MANASTONE"/>
 			<xs:enumeration value="GODSTONE"/>
 			<xs:enumeration value="ENCHANTMENT"/>
+			<xs:enumeration value="GRIND_ENCHANT"/>
 			<xs:enumeration value="AMPLIFICATION"/>
 			<xs:enumeration value="FLUX"/>
 			<xs:enumeration value="BALIC_EMOTION"/>
@@ -692,6 +744,12 @@
 			<xs:enumeration value="NONE"/>
 			<xs:enumeration value="BRACELET"/>
 			<xs:enumeration value="ESTIMA"/>
+			<xs:enumeration value="MANA_SLOT_OPEN"/>
+			<xs:enumeration value="ODIAN"/>
+			<xs:enumeration value="RUNE"/>
+			<xs:enumeration value="GRIND_SLOT_OPEN"/>
+			<xs:enumeration value="GLYPH"/>
+			<xs:enumeration value="GLYPH_ENCHANT"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="itemType">
@@ -727,6 +785,7 @@
 			<xs:enumeration value="WING"/>
 			<xs:enumeration value="PLUME"/>
 			<xs:enumeration value="BRACELET"/>
+			<xs:enumeration value="GLYPH"/>
 			<xs:enumeration value="OTHER"/>
 			<xs:enumeration value="ALL"/>
 			<xs:enumeration value="EVENT"/>
@@ -739,6 +798,8 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="PVP"/>
 			<xs:enumeration value="PVE"/>
+			<xs:enumeration value="DESTRUCTION"/>
+			<xs:enumeration value="GRIND"/>
 			<xs:enumeration value="NONE"/>
 		</xs:restriction>
 	</xs:simpleType>

@@ -118,6 +118,9 @@ public class ItemTemplate extends VisibleObjectTemplate {
 	@XmlAttribute(name = "rnd_bonus")
 	private int rnd_bonus = 0;
 
+	@XmlAttribute(name = "rnd_real_bonus")
+	private int real_rnd_bonus = 0;
+
 	@XmlAttribute(name = "rnd_count")
 	private int rnd_count = 0;
 
@@ -240,7 +243,40 @@ public class ItemTemplate extends VisibleObjectTemplate {
     
     @XmlAttribute(name = "enchant_type")
 	private EnchantType enchantType;
-    
+
+	@XmlAttribute(name = "skin_skill")
+	private int skin_skill;
+
+    @XmlAttribute(name = "option_slot_max")
+    private int option_slot_max;
+
+    @XmlAttribute(name = "option_slot_add_count")
+    private int option_slot_add_count;
+
+    @XmlAttribute(name = "grind_color")
+    private int grindColor;
+
+    @XmlAttribute(name = "grind_tier")
+    private int grindTier;
+
+    @XmlAttribute(name = "grind_quality")
+    private int grindQuality;
+
+    @XmlAttribute(name = "grind_slot")
+    private GrindSlot grindSlot;
+
+    @XmlAttribute(name = "grind_slot_opening_cost")
+    private int grind_slot_opening_cost;
+
+    @XmlAttribute(name = "odian_skill_id")
+    private int odianSkillId;
+
+    @XmlAttribute(name = "odian_skill_level")
+    private int odianSkillLevel;
+
+    @XmlAttribute(name = "rune_transform_table_id")
+    private int runTransformTableId;
+
 	private static final WeaponStats emptyWeaponStats = new WeaponStats();
 	@XmlTransient
 	private boolean isQuestUpdateItem;
@@ -376,6 +412,9 @@ public class ItemTemplate extends VisibleObjectTemplate {
 		if (isBracelet()) {
 			return ArmorType.ACCESSORY;
 		}
+        if (isGlyph()) {
+            return ArmorType.GLYPH;
+        }
 		return armorType;
 	}
 
@@ -450,6 +489,22 @@ public class ItemTemplate extends VisibleObjectTemplate {
 		return equipmentType == EquipType.ARMOR;
 	}
 
+    public boolean isManaSlotOpen() {
+        return category == ItemCategory.MANA_SLOT_OPEN;
+    }
+
+    public boolean isGrindSlotOpen() {
+        return category == ItemCategory.GRIND_SLOT_OPEN;
+    }
+
+    public boolean isOdian() {
+        return category == ItemCategory.ODIAN;
+    }
+
+    public boolean isRune() {
+        return category == ItemCategory.RUNE;
+    }
+
 	public boolean isKinah() {
 		return itemId == ItemId.KINAH.value();
 	}
@@ -458,21 +513,17 @@ public class ItemTemplate extends VisibleObjectTemplate {
 		return itemId == ItemId.LUNA.value();
 	}
 
-	public boolean isOldStigma() {
-		return itemId > 140000004 && itemId < 140001103;
-	}
-
 	public boolean isStigma() {
-		return itemId > 140001101 && itemId < 140001493;
+		return itemId > 140001101 && itemId < 140001930;
 	}
 
 	public boolean isInertStigma() {
-		return itemId > 140001297 && itemId < 140001493;
+		return name.endsWith("(damaged)");
 	}
 
-	public boolean isUpgradableStigma() {
-		return itemId > 140001101 && itemId < 140001298;
-	}
+    public boolean isGrindEnchant() {
+        return category == ItemCategory.GRIND_ENCHANT;
+    }
 
 	public boolean isPlume() {
 		return category == ItemCategory.PLUME; // return itemId >= 187100015 && itemId <= 187100018;
@@ -485,6 +536,14 @@ public class ItemTemplate extends VisibleObjectTemplate {
 	public boolean isEstima() {
 		return category == ItemCategory.ESTIMA;
 	}
+
+    public boolean isGlyph() {
+        return category == ItemCategory.GLYPH;
+    }
+
+    public boolean isGlyphEnchant() {
+        return category == ItemCategory.GLYPH_ENCHANT;
+    }
 
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
@@ -666,6 +725,13 @@ public class ItemTemplate extends VisibleObjectTemplate {
 	}
 
 	/**
+	 * @return the real_rnd_bonus, 0 if no bonus exists
+	 */
+	public int getRealRndBonus() {
+		return real_rnd_bonus;
+	}
+
+	/**
 	 * @return the rnd_count, 0 if no randomization is limited (JUST A GUESS!)
 	 */
 	public int getRandomBonusCount() {
@@ -722,6 +788,14 @@ public class ItemTemplate extends VisibleObjectTemplate {
 		return category == ItemCategory.EARRINGS || category == ItemCategory.RINGS || category == ItemCategory.NECKLACE || category == ItemCategory.PLUME || category == ItemCategory.BRACELET || category == ItemCategory.BELT || category == ItemCategory.HELMET;
 	}
 
+    public boolean isOdianAccessory() {
+        return category == ItemCategory.EARRINGS || category == ItemCategory.RINGS || category == ItemCategory.NECKLACE || category == ItemCategory.BELT;
+    }
+
+    public boolean isRuneAccessory() {
+        return category == ItemCategory.BRACELET || category == ItemCategory.PLUME || armorType == ArmorType.WING;
+    }
+
 	public int getMaxAuthorize() {
 		return max_authorize;
 	}
@@ -765,4 +839,48 @@ public class ItemTemplate extends VisibleObjectTemplate {
     public EnchantType getEnchantType() {
 		return enchantType;
 	}
+
+	public int getSkinSkill() {
+		return skin_skill;
+	}
+
+    public int getMaxSlot() {
+        return option_slot_max;
+    }
+
+    public int getOptionSlotAddCount() {
+        return option_slot_add_count;
+    }
+
+    public int getGrindColor() {
+        return grindColor;
+    }
+
+    public int getGrindSlotOpeningCost() {
+        return grind_slot_opening_cost;
+    }
+
+    public GrindSlot getGrindSlot() {
+        return grindSlot;
+    }
+
+    public int getGrindQuality() {
+        return grindQuality;
+    }
+
+    public int getGrindTier() {
+        return grindTier;
+    }
+
+    public int getOdianSkillId() {
+        return odianSkillId;
+    }
+
+    public int getOdianSkillLevel() {
+        return odianSkillLevel;
+    }
+
+    public int getRunTransformTableId() {
+        return runTransformTableId;
+    }
 }

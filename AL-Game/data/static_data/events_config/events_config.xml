@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <events_config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="events_config.xsd">
-    <active>The Moon Festival;The Spookily Super Halloween Event;Snow in Atreia;Hungry Magpie;Floral Magic;Capt’n Grogget’s Revenge;The Matryoshka Event;The Ice Sculpture Event;Windstream;Hungry Hatchlings;Rainbow Snake Festival;Green Thumbs</active>
+    <active>The Moon Festival;The Spookily Super Halloween Event;Snow in Atreia;Hungry Magpie;Floral Magic;Capt’n Grogget’s Revenge;The Matryoshka Event;The Ice Sculpture Event;Windstream;Hungry Hatchlings;Rainbow Snake Festival;Green Thumbs;Lost Ring Event;Aion Event 11th</active>
     <events>
         <event name="The Moon Festival" start="2018-10-01T00:00:00+00:00" end="2018-10-24T00:00:00+00:00">
             <event_drops>
@@ -62,7 +62,7 @@
 					</spawn>
                 </spawn_map>
 				<!-- Lakrum -->
-                <spawn_map map_id="600200000">
+                <spawn_map map_id="800050000">
 					<!-- Chen ||| world_event_midautumn_npc03_l -->
 					<spawn npc_id="834961" respawn_time="295">
 						<spot x="2668.16" y="495.95" z="323.40546" h="80"/>
@@ -150,7 +150,7 @@
 					</spawn>
                 </spawn_map>
 				<!-- Lakrum -->
-                <spawn_map map_id="600200000">
+                <spawn_map map_id="800050000">
 					<!-- A Nobleman’s Coffin ||| World_event_halloween_buff_coffin -->
 					<spawn npc_id="835989" respawn_time="295">
 						<spot x="2640.75" y="532.28" z="319.47076" h="30"/>
@@ -280,7 +280,7 @@
 					</spawn>
                 </spawn_map>
 				<!-- Lakrum -->
-                <spawn_map map_id="600200000">
+                <spawn_map map_id="800050000">
 					<!-- Evil Scholar ||| LDF7_Event_BadMan_Normal -->
 					<spawn npc_id="656292" respawn_time="295">
 						<spot x="884.5339" y="731.1598" z="319.6975" h="108"/>
@@ -312,7 +312,7 @@
         <event name="Floral Magic" start="2019-04-03T00:00:00+00:00" end="2019-04-17T00:00:00+00:00">
             <spawns>
                 <!-- Lakrum -->
-                <spawn_map map_id="600200000">
+                <spawn_map map_id="800050000">
 					<!-- None ||| world_SpringEvent_F -->
 					<spawn npc_id="838342" respawn_time="295">
 						<spot x="2649.77" y="498.61" z="319.56696" h="12"/>
@@ -329,7 +329,7 @@
         <event name="Capt’n Grogget’s Revenge" start="2019-05-29T00:00:00+00:00" end="2019-06-12T00:00:00+00:00">
             <spawns>
                 <!-- Lakrum -->
-                <spawn_map map_id="600200000">
+                <spawn_map map_id="800050000">
 					<!-- Wasseronerk ||| IDWaterworld_L_01_In -->
 					<spawn npc_id="837443" respawn_time="295">
 						<spot x="2667.5" y="485.9" z="323.51578" h="43"/>
@@ -393,7 +393,7 @@
 					</spawn>
                 </spawn_map>
 				<!-- Lakrum -->
-                <spawn_map map_id="600200000">
+                <spawn_map map_id="800050000">
 					<!-- 1st Matryoshka ||| event_matryoshka_01 -->
 					<spawn npc_id="833622" respawn_time="295">
 						<spot x="2651.7" y="502.7" z="319.55206" h="46"/>
@@ -451,7 +451,7 @@
 					</spawn>
                 </spawn_map>
 				<!-- Lakrum -->
-                <spawn_map map_id="600200000">
+                <spawn_map map_id="800050000">
 					<!-- Kromede's Minion Ice Statue ||| event_cromede_minion_ap_buff_l -->
 					<spawn npc_id="837649" respawn_time="295">
 						<spot x="2669.9" y="510.1" z="319.56436" h="60"/>
@@ -486,7 +486,7 @@
             </quests>
             <spawns>
                 <!-- Lakrum -->
-                <spawn_map map_id="600200000">
+                <spawn_map map_id="800050000">
 					<!-- Risiel ||| NewServer_Event_NPC -->
 					<spawn npc_id="820475" respawn_time="295">
 						<spot x="2647.98" y="480.46" z="323.40546" h="0"/>
@@ -498,7 +498,7 @@
         <event name="Hungry Hatchlings" start="2020-03-01T00:00:00+00:00" end="2020-03-31T00:00:00+00:00">
             <spawns>
                 <!-- Dumaha -->
-                <spawn_map map_id="600300000">
+                <spawn_map map_id="800060000">
 					<!-- Zudra ||| event_Rudra_Reward_upgrade_01 -->
 					<spawn npc_id="840621" respawn_time="295">
 						<spot x="935.1" y="1588.5" z="713.2346" h="37"/>
@@ -536,7 +536,7 @@
         <event name="Green Thumbs" start="2020-04-08T00:00:00+00:00" end="2020-04-30T00:00:00+00:00">
             <spawns>
                 <!-- Dumaha -->
-                <spawn_map map_id="600300000">
+                <spawn_map map_id="800060000">
 					<!-- Gretchen ||| LDF8_AIONFarm_Script_NPC -->
 					<spawn npc_id="820629" respawn_time="295">
 						<spot x="899.9" y="1627.4" z="713.23456" h="15"/>
@@ -618,6 +618,76 @@
 						<spot x="1023.5" y="2504.3" z="543.4281" h="45"/>
 						<spot x="1011.5" y="2345.3" z="560.53125" h="15"/>
 						<spot x="1025.3" y="2183.3" z="587.6472" h="105"/>
+					</spawn>
+                </spawn_map>
+            </spawns>
+        </event>
+        <event name="Lost Ring Event" start="2020-04-15T00:00:00+00:00" end="2020-05-13T00:00:00+00:00">
+            <spawns>
+                <!-- Dumaha -->
+                <spawn_map map_id="800060000">
+					<!-- Deino ||| LDF8_OP_RingWitch_01 -->
+					<spawn npc_id="820727" respawn_time="295">
+						<spot x="957.2" y="1632.0" z="713.23456" h="60"/>
+					</spawn>
+					<!-- Pamred ||| LDF8_OP_RingWitch_02 -->
+					<spawn npc_id="820728" respawn_time="295">
+						<spot x="957.2" y="1627.8" z="713.23456" h="60"/>
+					</spawn>
+					<!-- Enio ||| LDF8_OP_RingWitch_03 -->
+					<spawn npc_id="820729" respawn_time="295">
+						<spot x="956.3" y="1624.6" z="713.23456" h="45"/>
+					</spawn>
+					<!-- Kind Lover Angmu ||| LDF8_RingBird_02 -->
+					<spawn npc_id="820731" respawn_time="295">
+						<spot x="2706.0" y="2129.1" z="683.125" h="66"/>
+						<spot x="2658.0" y="2144.2" z="683.125" h="21"/>
+						<spot x="2615.4" y="2141.0" z="683.125" h="30"/>
+					</spawn>
+					<!-- Tamed Lover Angmu ||| LDF8_OP_RingDeco_01 -->
+					<spawn npc_id="820733" respawn_time="295">
+						<spot x="956.3" y="1635.2" z="713.23456" h="81"/>
+					</spawn>
+					<!-- None ||| LDF8_OP_RingDeco_02 -->
+					<spawn npc_id="820734" respawn_time="295">
+						<spot x="955.7" y="1630.0" z="713.23456" h="75"/>
+					</spawn>
+
+					<!-- Cursed Ribbit ||| Event_V72_RingFrog_01 -->
+					<spawn npc_id="858689" respawn_time="295">
+						<spot x="2775.5737" y="2033.9221" z="717.0718" h="83"/>
+						<spot x="2788.0" y="2062.6" z="717.2125" h="0"/>
+						<spot x="2803.4" y="2073.1" z="716.41064" h="100"/>
+						<spot x="2823.2" y="2064.4" z="713.86" h="80"/>
+						<spot x="2829.5" y="2064.6" z="713.0625" h="60"/>
+						<spot x="2803.4" y="2073.1" z="716.41064" h="100"/>
+					</spawn>
+					<!-- Cursed Ribbit ||| Event_V72_RingFrog_02 -->
+					<spawn npc_id="858690" respawn_time="295">
+						<spot x="2779.1" y="2065.0" z="717.125" h="10"/>
+						<spot x="2795.6" y="2063.1" z="717.2925" h="110"/>
+						<spot x="2824.7" y="2070.1" z="713.6625" h="70"/>
+						<spot x="2830.4" y="2061.2" z="712.975" h="90"/>
+						<spot x="2792.6" y="2092.3" z="714.3506" h="30"/>
+						<spot x="2792.6" y="2092.3" z="714.3506" h="30"/>
+					</spawn>
+                </spawn_map>
+            </spawns>
+        </event>
+        <event name="Aion Event 11th" start="2020-09-02T00:00:00+00:00" end="2020-09-30T00:00:00+00:00">
+            <spawns>
+                <!-- Inggison -->
+                <spawn_map map_id="210050000">
+					<!-- AION Dreamscape Entrance ||| Aion_Event_11th_Entrance_L -->
+					<spawn npc_id="840578" respawn_time="295">
+						<spot x="1358.9" y="265.8" z="589.78625" h="53"/>
+					</spawn>
+                </spawn_map>
+                <!-- Gelkmaros -->
+                <spawn_map map_id="220070000">
+					<!-- AION Dreamscape Entrance ||| Aion_Event_11th_Entrance_D -->
+					<spawn npc_id="840580" respawn_time="295">
+						<spot x="1815.3" y="2911.4" z="548.5258" h="40"/>
 					</spawn>
                 </spawn_map>
             </spawns>
